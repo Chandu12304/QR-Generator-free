@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Image Generator</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo"><a href="#">QR Image Generator</a></div>
+            <div class="menu">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Generate Your QR Code</h1>
+                <p>Enter a URL below to generate a QR code</p>
+            </div>
+        </section>
+
+        <section class="generator">
+
+            <form action="/converter" method="POST">
+                <input type="text" name="url" id="url-input" placeholder="Enter your URL here">
+                <button id="generate-btn">Generate QR Code</button>
+            </form>
+
+            <div class="qr-output">
+                <div id="qr-code"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 QR Image Generator. All rights reserved.</p>
+    </footer>
+
+    <script src="/js/app.js"></script>
+</body>
+
+</html>
