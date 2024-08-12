@@ -111,11 +111,12 @@ button:hover {
 }
 
 .qr-output {
-  margin-top: 20px;
+  margin-top: 5px;
   text-align: center;
 }
 
 #qr-code {
+  margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -182,6 +183,7 @@ footer {
   }
 
   #qr-code {
+    margin-top: 20px;
     width: 200px;
     height: 200px;
   }
