@@ -17,6 +17,9 @@ const session = require('express-session');
 //core module path from npm
 const path = require('path');
 
+//third-party module url shortner from npm
+var shortUrl = require("node-url-shortener");
+
 // Setting the view engine to EJS
 app.set('view engine', 'ejs');
 
@@ -97,11 +100,13 @@ app.get("/qrimage", (req, res) => {
     if (!fs.existsSync(outputDir)) {
         fs.mkdirSync(outputDir, { recursive: true });
     }
-
-    const filePath = path.join(outputDir, `image${num}.png`);
-    const qr_png = qr.image(`${url}`, { type: 'png' });
-    qr_png.pipe(fs.createWriteStream(filePath));
-    num++;
-    res.render('qrimage.ejs', { num }); // Pass num to the template
+    shortUrl.short(`${url}`, function (err, url1) {
+        console.log(url1);
+        const filePath = path.join(outputDir, `image${num}.png`);
+        const qr_png = qr.image(`${url1}`, { type: 'png' });
+        qr_png.pipe(fs.createWriteStream(filePath));
+        num++;
+        res.render('qrimage.ejs', { num }); // Pass num to the template
+    });
 })
 
